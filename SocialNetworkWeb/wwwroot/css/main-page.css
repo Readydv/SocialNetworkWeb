@@ -1,0 +1,229 @@
+﻿/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5; /* Фон страницы, как у ВК */
+}
+
+.block-reg {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.center {
+    text-align: center;
+}
+
+.text-color-gray {
+    color: #888;
+}
+
+.text-size_12 {
+    font-size: 12px;
+}
+
+/* Стили для формы */
+.frm {
+    display: flex;
+    flex-direction: column;
+}
+
+.mrgn {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #007bff; /* Цвет при фокусе, можно изменить */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Тень при фокусе */
+    }
+
+.text-danger {
+    color: #dc3545; /* Красный цвет для ошибок */
+    font-size: 14px;
+}
+
+/* Стили для кнопок */
+.btn_submit,
+.enter_submit {
+    background-color: #007bff; /* Синий цвет для кнопки */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease; /* Плавный переход цвета */
+}
+
+    .btn_submit:hover,
+    .enter_submit:hover {
+        background-color: #0056b3; /* Более темный синий при наведении */
+    }
+
+.btn_submit {
+    /* Дополнительные стили для кнопки регистрации, если нужно */
+}
+
+.enter_submit {
+    /* Дополнительные стили для кнопки входа, если нужно */
+}
+
+/* Стили для select (выпадающих списков) */
+/*1 решение*/
+.date_control {
+    width: calc(33.33% - 10px);
+}
+
+/* Стили для уже существующих классов (из вашего CSS) */
+.main {
+    flex: 40%;
+    padding: 20px;
+}
+
+.side {
+    flex: 60%;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #edeef0;
+}
+
+.topnav {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    background-color: white;
+}
+
+.topnav a {
+        text-decoration: none; /* Убираем подчеркивание */
+        color: inherit; /* Наследуем цвет от родителя (чтобы был не синий) */
+        font-weight: bold; /* Сделаем жирным, если хотите */
+        font-size: 1.2em; /* Размер шрифта */
+}
+
+    .topnav a:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Стили для кнопки "Выход" */
+    .topnav form button {
+        border: none;
+        text-decoration: none; /* Убираем подчеркивание */
+        padding: 0.5rem 1rem;
+        border-radius: 0; /* Убираем скругление углов */
+        background-color: #007bff; /* Меняем цвет фона на синий */
+        color: white; /* Меняем цвет текста на белый */
+        cursor: pointer; /* Изменяем курсор при наведении */
+        transition: background-color 0.3s; /* Добавляем плавный переход цвета при наведении */
+    }
+
+        .topnav form button:hover {
+            background-color: white; /* Затемняем цвет фона при наведении */
+        }
+
+.main-img {
+    width: 100%;
+    max-width: max-content;
+}
+
+.background-main {
+    background-color: #edeef0;
+}
+
+.background-white {
+    background-color: white;
+}
+
+.birthdate-container {
+    display: flex; /* Располагаем элементы в строку */
+    justify-content: space-between; /* Распределяем их равномерно */
+    align-items: center; /* Выравниваем по вертикали по центру */
+    width: 100%; /* Занимаем всю доступную ширину */
+}
+
+.date-select-wrapper {
+    width: 30%; /* Каждому select отводим примерно треть ширины */
+}
+
+.date_control {
+    width: 100%; /* Select занимает всю ширину внутри .date-select-wrapper */
+    padding: 8px; /* Немного уменьшим padding, чтобы лучше помещалось */
+    box-sizing: border-box; /* Важно, чтобы padding не увеличивал ширину */
+}
+
+.header {
+    padding: 10px 0;
+}
+
+/* Стили для выпадающих списков (select) с добавлением стрелочки */
+select.form-control {
+    /* Resetting default appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Custom styling */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 0.5em 2.5em 0.5em 0.7em;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    /* Arrow styling */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%;
+    background-size: 0.65em auto;
+}
+
+    /* Arrow will not show in IE, so you can add some alternative styling */
+    select.form-control::-ms-expand {
+        display: none;
+    }
+
+    /* Hover effect */
+    select.form-control:hover {
+        border-color: #007bff;
+    }
+
+.date-item {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+    .date-item label {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    .date-item span {
+        text-align: left;
+    }

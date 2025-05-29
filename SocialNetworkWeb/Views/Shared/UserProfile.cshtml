@@ -1,0 +1,23 @@
+﻿@model SocialNetworkWeb.ViewModels.Account.UserViewModel
+
+@{
+    ViewData["Title"] = "User Profile";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src = "@Model.User.Image" alt="User Image" class="img-fluid rounded-circle" />
+            <div class="mt-3">
+                <a asp-controller="User" asp-action="Edit" class="btn btn-primary">Редактировать профиль</a>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h2>@Model.User.GetFullName()</h2>
+            <p><strong>Никнейм: </strong>@Model.User.MiddleName</p>
+            <p><strong>Статус: </strong>@Model.User.Status</p>
+            <p><strong>О себе: </strong>@Model.User.About</p>
+            <p><strong>Email: </strong>@Model.User.Email</p>
+        </div>
+    </div>
+</div>
