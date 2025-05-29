@@ -6,7 +6,7 @@ namespace SocialNetworkWeb.Extensions
 {
     public static class UserFromModel
     {
-        public static User Convert (this User user, UserEditViewModel usereditvm)
+        public static User Convert(this User user, UserEditViewModel usereditvm)
         {
             user.Image = usereditvm.Image;
             user.LastName = usereditvm.LastName;
