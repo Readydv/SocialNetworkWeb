@@ -16,7 +16,7 @@ namespace SocialNetworkWeb.Extensions
                  where TEntity : class
                  where IRepository : class, IRepository<TEntity>
         {
-            services.AddScoped<IRepository<TEntity>, IRepository>();
+            services.AddScoped(typeof(IRepository<TEntity>), typeof(IRepository));
 
             return services;
         }

@@ -227,3 +227,69 @@ select.form-control {
     .date-item span {
         text-align: left;
     }
+
+/* Стили для списка друзей */
+.friends-list {
+    flex: 1; /* Занимает меньше места (1/3) */
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+}
+
+.friend-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.friend-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.friend-info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.friend-remove-form {
+    margin: 0;
+}
+
+.search-result-item {
+    display: flex; /* Используем Flexbox для размещения аватарки и информации */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-result-image {
+    width: 80px; /* Ширина аватарки */
+    height: 80px; /* Высота аватарки */
+    border-radius: 50%; /* Скругление углов для круглой аватарки */
+    margin-right: 10px; /* Отступ между аватаркой и информацией */
+    object-fit: cover; /*  Для правильного отображения изображения */
+}
+
+.search-result-info {
+    flex-grow: 1; /* Занимает оставшееся пространство */
+}
+
+.chat-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.messages > div {
+    margin-bottom: 10px; /* или другое значение */
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #f0f0f0; /* optional */
+}

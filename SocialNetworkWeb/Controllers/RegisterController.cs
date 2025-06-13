@@ -49,7 +49,7 @@ namespace SocialNetworkWeb.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "User");
+                    return RedirectToAction("MyPage", "AccountManager");
                 }
                 else
                 {

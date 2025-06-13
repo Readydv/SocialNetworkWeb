@@ -1,0 +1,39 @@
+﻿@model SocialNetworkWeb.ViewModels.Account.ChatViewModel
+
+@{
+    ViewBag.Title = "Chat";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <a asp-action="Index" class="btn btn-light btn-sm">Назад</a>
+            <h5 class="mb-0">Чат @Model.You.FirstName и @Model.ToWhom.FirstName</h5>
+            <span></span>
+        </div>
+
+        <div class="card-body">
+            <h6>Сообщения</h6>
+            <hr />
+            <div class="messages">
+                @foreach (var msg in Model.History)
+                {
+                    <div>
+                        <img src="@msg.Sender.Image" class="chat-image"/>
+                        <strong>@msg.Sender.FirstName:</strong> @msg.Text
+                    </div>
+                }
+            </div>
+
+            <hr />
+            <h6>Новое сообщение</h6>
+            <form asp-action="NewMessage" asp-route-id="@Model.ToWhom.Id" method="post">
+                <input type="hidden" name="RecipientId" value="@Model.ToWhom.Id" />
+                <div class="form-group">
+                    <input asp-for="NewMessage.Text" class="form-control" placeholder="Введите сообщение..." />
+                </div>
+                <button type="submit" class="btn btn-success btn-block mt-2">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>

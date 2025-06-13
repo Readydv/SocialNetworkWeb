@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SocialNetworkWeb.Data;
+using SocialNetworkWeb.Data.Repository;
+using SocialNetworkWeb.Extensions;
 using SocialNetworkWeb.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,9 +27,16 @@ builder.Services.AddIdentity<User, IdentityRole>(opts =>
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+// ƒобавьте эти строки:
+builder.Services.AddUnitOfWork();
 builder.Services.AddScoped<SignInManager<User>>(); // явна€ регистраци€ SignInManager
 builder.Services.AddScoped<UserManager<User>>(); // явна€ регистраци€ UserManager
+builder.Services.AddCustomRepository<Friend, FriendsRepository>();
+builder.Services.AddCustomRepository<Message, MessageRepository>();
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

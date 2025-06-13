@@ -1,4 +1,5 @@
-﻿@model SocialNetworkWeb.ViewModels.Account.UserViewModel
+﻿@using System.Globalization;
+@model SocialNetworkWeb.ViewModels.Account.UserViewModel
 
 @{
     ViewData["Title"] = "User Profile";
@@ -9,15 +10,48 @@
         <div class="col-md-4">
             <img src = "@Model.User.Image" alt="User Image" class="img-fluid rounded-circle" />
             <div class="mt-3">
-                <a asp-controller="User" asp-action="Edit" class="btn btn-primary">Редактировать профиль</a>
+                <a asp-controller="AccountManager" asp-action="Edit" class="btn btn-primary">Редактировать профиль</a>
             </div>
         </div>
         <div class="col-md-8">
             <h2>@Model.User.GetFullName()</h2>
-            <p><strong>Никнейм: </strong>@Model.User.MiddleName</p>
             <p><strong>Статус: </strong>@Model.User.Status</p>
+            <p><strong>Дата рождения: </strong>@Model.User.BirthDate.ToString("dd MMMM yyyy", CultureInfo.CurrentCulture)</p>
             <p><strong>О себе: </strong>@Model.User.About</p>
             <p><strong>Email: </strong>@Model.User.Email</p>
+        
+        <div class="friends-list">
+            <label class="gray-text">Список друзей</label>
+            @if (Model.Friends.Count != 0)
+            {
+                @foreach (var user in @Model.Friends)
+                {
+                    <div class="friend-item">
+                        <img src="@user.Image" alt="@user.GetFullName()" class="friend-avatar" />
+                        <div class="friend-info">
+                            <label>@user.GetFullName()</label>
+                            <form asp-controller="AccountManager" asp-action="DeleteFriend" asp-route-id="@user.Id" method="post" class="friend-remove-form">
+                                <button type="submit" class="btn btn-sm btn-primary">
+                                    Удалить из друзей
+                                </button>
+                            </form>
+                                <form asp-controller="AccountManager" asp-action="Chat" asp-route-id="@user.Id" method="post" class="friend-remove-form">
+                                    <button type="submit" class="btn btn-sm btn-primary">
+                                        Открыть чат с этим пользователем
+                                    </button>
+                                </form>
+                                
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div>
+                    <label>У вас пока нет друзей.</label>
+                </div>
+            }
+            </div>
         </div>
     </div>
 </div>

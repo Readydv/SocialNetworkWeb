@@ -4,28 +4,38 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using SocialNetworkWeb.Models;
 using SocialNetworkWeb.ViewModels.Account;
+using Microsoft.AspNetCore.Identity;
 
 namespace SocialNetworkWeb.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly SignInManager<User> _signInManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, SignInManager<User> signInManager)
         {
             _logger = logger;
+            _signInManager = signInManager;
         }
 
         [Route("")]
         [Route("[controller]/[action]")]
         public IActionResult Index()
         {
-            var model = new MainViewModel
+            if (_signInManager.IsSignedIn(User))
             {
-                LoginView = new LoginViewModel(),
-                RegisterView = new RegisterViewModel()
-            };
-            return View(model);
+                return RedirectToAction("MyPage", "AccountManager");
+            }
+            else
+            {
+                var model = new MainViewModel
+                {
+                    LoginView = new LoginViewModel(),
+                    RegisterView = new RegisterViewModel()
+                };
+                return View(model);
+            }
         }
 
         [Route("[action]")]

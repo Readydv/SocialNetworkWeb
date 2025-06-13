@@ -11,6 +11,7 @@ namespace SocialNetworkWeb.Models
         public string Image {  get; set; }
         public string Status {  get; set; }
         public string About {  get; set; }
+
         public string GetFullName()
         {
             return FirstName + " " + MiddleName + " " + LastName;

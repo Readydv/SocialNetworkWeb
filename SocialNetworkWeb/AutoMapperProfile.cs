@@ -17,6 +17,9 @@ namespace SocialNetworkWeb
 
             CreateMap<UserEditViewModel, User>();
             CreateMap<User, UserEditViewModel>().ForMember(x => x.UserId, opt => opt.MapFrom(c => c.Id));
+
+            CreateMap<UserWithFriendExt, User>();
+            CreateMap<User, UserWithFriendExt>();
         }
     }
 }
