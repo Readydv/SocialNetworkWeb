@@ -168,9 +168,21 @@ namespace SocialNetworkWeb.Controllers
 
             var result = await _userManager.GetUserAsync(currentuser);
 
-            var list = _userManager.Users
-               .Where(x => (x.FirstName + " " + x.LastName).ToLower().Contains(search.ToLower()))
-                .ToList();
+            List<User> list; // Объявляем list вне if/else
+
+            if (string.IsNullOrEmpty(search))
+            {
+                // Если строка поиска пуста, загружаем всех пользователей
+                list = _userManager.Users.ToList();
+            }
+            else
+            {
+                // Если строка поиска не пуста, фильтруем пользователей
+                list = _userManager.Users
+                   .Where(x => (x.FirstName + " " + x.LastName).ToLower().Contains(search.ToLower()))
+                    .ToList();
+            }
+
             var withfriend = await GetAllFriend();
 
             var data = new List<UserWithFriendExt>();

@@ -149,7 +149,7 @@ body {
         }
 
 .main-img {
-    width: 100%;
+    width: 80%;
     max-width: max-content;
 }
 
@@ -179,7 +179,7 @@ body {
 }
 
 .header {
-    padding: 10px 0;
+    padding: 10px;
 }
 
 /* Стили для выпадающих списков (select) с добавлением стрелочки */
@@ -229,37 +229,40 @@ select.form-control {
     }
 
 /* Стили для списка друзей */
-.friends-list {
-    flex: 1; /* Занимает меньше места (1/3) */
-    border-left: 1px solid #ccc;
-    padding-left: 20px;
-}
-
 .friend-item {
     display: flex;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px dotted #ccc;
+    align-items: center; /* Выравнивание по вертикали */
+    margin-bottom: 10px; /* Отступ между элементами */
+}
+
+.friend-info-wrapper {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    flex-grow: 1; /* Занимает все доступное пространство */
 }
 
 .friend-avatar {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    object-fit: cover;
-    margin-right: 15px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    margin-right: 10px;
+    flex-shrink: 0; /* Не сжимать */
 }
 
 .friend-info {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-grow: 1; /* Занимает все доступное пространство */
+    flex-shrink: 0; /* Не сжимать */
+}
+
+.friend-actions {
+    display: flex; /* Кнопки в строку */
+    flex-shrink: 0; /* Не сжимать */
+    margin-left: auto; /* Прижать к правому краю */
 }
 
 .friend-remove-form {
     margin: 0;
+    margin-left: 5px; /* Отступ между кнопками */
 }
 
 .search-result-item {
@@ -292,4 +295,10 @@ select.form-control {
     padding: 10px;
     border-radius: 30px;
     background-color: #f0f0f0; /* optional */
+}
+
+.logo {
+    width: 130px; /* Задайте желаемую ширину */
+    height: 30px; /* Автоматическая высота */
+    vertical-align: middle; /* Выравнивание по центру по вертикали */
 }

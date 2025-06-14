@@ -36,7 +36,6 @@ namespace SocialNetworkWeb.Controllers
         }
 
 
-
         [Route("Register")]
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)

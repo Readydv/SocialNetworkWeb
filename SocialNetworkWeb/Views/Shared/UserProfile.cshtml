@@ -26,23 +26,28 @@
             {
                 @foreach (var user in @Model.Friends)
                 {
-                    <div class="friend-item">
-                        <img src="@user.Image" alt="@user.GetFullName()" class="friend-avatar" />
-                        <div class="friend-info">
-                            <label>@user.GetFullName()</label>
-                            <form asp-controller="AccountManager" asp-action="DeleteFriend" asp-route-id="@user.Id" method="post" class="friend-remove-form">
-                                <button type="submit" class="btn btn-sm btn-primary">
-                                    Удалить из друзей
-                                </button>
-                            </form>
+                        <div class="friend-item">
+                            <div class="friend-info-wrapper">
+                                <!-- Обертка для аватарки и информации -->
+                                <img src="@user.Image" alt="@user.GetFullName()" class="friend-avatar" />
+                                <div class="friend-info">
+                                    <label>@user.GetFullName()</label>
+                                </div>
+                            </div>
+                            <div class="friend-actions">
+                                <!-- Отдельный блок для кнопок -->
+                                <form asp-controller="AccountManager" asp-action="DeleteFriend" asp-route-id="@user.Id" method="post" class="friend-remove-form">
+                                    <button type="submit" class="btn btn-sm btn-primary">
+                                        Удалить из друзей
+                                    </button>
+                                </form>
                                 <form asp-controller="AccountManager" asp-action="Chat" asp-route-id="@user.Id" method="post" class="friend-remove-form">
                                     <button type="submit" class="btn btn-sm btn-primary">
                                         Открыть чат с этим пользователем
                                     </button>
                                 </form>
-                                
+                            </div>
                         </div>
-                    </div>
                 }
             }
             else
